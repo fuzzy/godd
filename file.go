@@ -7,6 +7,10 @@ type GoddFileMover struct {
 	handle *os.File
 }
 
+func (self GoddFileMover) Sync() {
+	_ = self.handle.Sync()
+}
+
 func (self GoddFileMover) Size() int64 {
 	r, _ := self.handle.Stat()
 	return r.Size()
